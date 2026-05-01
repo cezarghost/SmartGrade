@@ -4,12 +4,12 @@ import { Ionicons } from '@expo/vector-icons';
 import CriterioCard from '../components/CriterioCard';
 
 export default function CriarRubrica() {
-  // A MÁGICA: Um array de objetos que começa com um critério padrão
+ 
   const [listaCriterios, setListaCriterios] = useState([
     { id: Math.random().toString() } 
   ]);
 
-  // Função para adicionar um novo item na lista
+  
   const adicionarCriterio = () => {
     const novoCriterio = { id: Math.random().toString() };
     setListaCriterios([...listaCriterios, novoCriterio]);
@@ -36,21 +36,21 @@ export default function CriarRubrica() {
         </View>
       </View>
 
-      {/* RENDERIZAÇÃO DA LISTA: Para cada item no array, ele desenha um Card */}
+      
       {listaCriterios.map((item) => (
     <CriterioCard 
     key={item.id} 
-    onDelete={() => removerCriterio(item.id)} // Adicione apenas esta linha
+    onDelete={() => removerCriterio(item.id)} 
   />
 ))}
 
-      {/* BOTÃO ADICIONAR (Tracejado como na imagem) */}
+     
       <TouchableOpacity style={styles.botaoAdicionar} onPress={adicionarCriterio}>
         <Ionicons name="add-circle-outline" size={24} color="#A0A0B0" />
         <Text style={styles.textoAdicionar}>Adicionar Critério</Text>
       </TouchableOpacity>
 
-      {/* Espaço extra no final para o scroll ficar confortável */}
+      
       <View style={{ height: 50 }} />
     </ScrollView>
   );
